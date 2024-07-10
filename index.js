@@ -10,7 +10,11 @@ dotenv.config();
 const app = express();
 
 // Middleware setup
-app.use(cors());
+const corsOptions = {
+    origin: '*', // specify your frontend's origin
+    credentials: true, // allow credentials (cookies, authorization headers, etc.)
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.json());
 

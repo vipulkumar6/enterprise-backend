@@ -1,5 +1,5 @@
-import User from '../model/userModel.js';
 
+import { User, Contact } from '../model/userModel.js'
 export const register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -34,3 +34,16 @@ export const login = async (req, res) => {
         res.status(500).json({ msg: "Error while logging in" });
     }
 };
+export const contact = async (req, res) => {
+    try {
+        const { name, email, message } = req.body;
+
+        const newMsg = new Contact({ name, email, message });
+
+        const savedMsg = await newMsg.save();
+        res.status(201).json(savedMsg);
+
+    } catch (e) {
+        console.log(e)
+    }
+}
