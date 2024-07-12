@@ -25,11 +25,8 @@ app.use("/", route);
 const PORT = process.env.PORT || 5000;
 const URI = process.env.URI;
 
-console.log('PORT:', PORT);
-console.log('URI:', URI);
-
 // MongoDB connection
-mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(URI,)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log('MongoDB connection error:', err));
 
